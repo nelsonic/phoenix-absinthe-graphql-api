@@ -9,5 +9,7 @@ defmodule BlogApp.Repo.Migrations.CreateBlogApp.Accounts.User do
       timestamps()
     end
 
+    create unique_index(:accounts_users, [:email])
+
   end
 end

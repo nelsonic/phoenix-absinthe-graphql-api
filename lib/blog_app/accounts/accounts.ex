@@ -106,5 +106,7 @@ defmodule BlogApp.Accounts do
     user
     |> cast(attrs, [:name, :email])
     |> validate_required([:name, :email])
+    |> unique_constraint(:email, message: "Sorry, cannot create account at
+this time, please try again with different email.")
   end
 end
