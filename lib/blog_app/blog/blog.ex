@@ -104,7 +104,7 @@ defmodule BlogApp.Blog do
 
   defp post_changeset(%Post{} = post, attrs) do
     post
-    |> cast(attrs, [:title, :body])
+    |> cast(attrs, [:title, :body, :accounts_users_id])
     |> validate_required([:title, :body])
   end
 end

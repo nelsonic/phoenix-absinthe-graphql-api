@@ -25,7 +25,7 @@ end
 
 # Create 40 seed posts
 
-for _ <- 1..40 do
+for _ <- 1..50 do
   Repo.insert!(%Post{
     title: Faker.Lorem.sentence,
     body: Faker.Lorem.paragraphs(%Range{first: 1, last: 5}) |> Enum.join("\n\n"),

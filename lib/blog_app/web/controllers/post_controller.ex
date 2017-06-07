@@ -3,6 +3,7 @@ defmodule BlogApp.Web.PostController do
 
   alias BlogApp.Blog
   alias BlogApp.Blog.Post
+  alias BlogApp.Accounts.User
 
   action_fallback BlogApp.Web.FallbackController
 
@@ -12,6 +13,13 @@ defmodule BlogApp.Web.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
+    IO.puts "- - - - - - - - - - - - - - - - - - post_params"
+    IO.inspect post_params
+
+    # new_post = Ecto.build_assoc(user, :posts,
+    #   Map.put(post, :accounts_users_id, post_params.accounts_users_id))
+    # Repo.insert!(new_post)
+
     with {:ok, %Post{} = post} <- Blog.create_post(post_params) do
       conn
       |> put_status(:created)
